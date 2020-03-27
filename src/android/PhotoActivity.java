@@ -136,7 +136,7 @@ public class PhotoActivity extends Activity {
 	 */
 	private void loadImage() {
 		if( imageUrl.startsWith("http") ) {
-		Picasso.with(this)
+		Picasso.get()
 				.load(imageUrl)
 				.fit()
 				.into(photo, new com.squareup.picasso.Callback() {
@@ -146,7 +146,7 @@ public class PhotoActivity extends Activity {
 					}
 
 					@Override
-					public void onError() {
+					public void onError(Exception e) {
 						Toast.makeText(getActivity(), "Error loading image.", Toast.LENGTH_LONG).show();
 
 						finish();
